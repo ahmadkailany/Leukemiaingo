@@ -17,11 +17,12 @@ jest.mock('next/navigation', () => ({
 // Mock Next.js Link
 jest.mock('next/link', () => {
   const React = require('react');
-  return ({ children, href }: { children: React.ReactNode; href: string }) =>
-    React.createElement('a', { href }, children);
+  return function MockLink({ children, href }: { children: React.ReactNode; href: string }) {
+    return React.createElement('a', { href }, children);
+  };
 });
 
-// Suppress console errors in tests (optional)
+// Suppress React act() and Warning: messages in tests
 const originalError = console.error;
 beforeAll(() => {
   console.error = (...args: unknown[]) => {
