@@ -12,9 +12,9 @@
     "id": "symptom-spotter",
     "name": "Symptom Spotter",
     "description": "Complete all Symptoms & Detection lessons",
-    "icon": "FiEye",
+    "icon": "FiSearch",
     "color": "red",
-    "condition": { "type": "category_complete", "value": 1, "category": "symptoms" },
+    "condition": { "type": "category_completed", "value": "symptoms" },
     "xpBonus": 75
   },
   {
@@ -23,7 +23,7 @@
     "description": "Complete all Risk Factors lessons",
     "icon": "FiShield",
     "color": "yellow",
-    "condition": { "type": "category_complete", "value": 1, "category": "risks" },
+    "condition": { "type": "category_completed", "value": "risks" },
     "xpBonus": 75
   },
   {
@@ -32,8 +32,8 @@
     "description": "Complete all Treatment lessons",
     "icon": "FiHeart",
     "color": "green",
-    "condition": { "type": "category_complete", "value": 1, "category": "treatment" },
-    "xpBonus": 75
+    "condition": { "type": "category_completed", "value": "treatment" },
+    "xpBonus": 100
   },
   {
     "id": "week-warrior",
@@ -58,26 +58,26 @@
     "name": "Perfect Score",
     "description": "Get 100% on any lesson",
     "icon": "FiStar",
-    "color": "yellow",
-    "condition": { "type": "perfect_score", "value": 1 },
+    "color": "gold",
+    "condition": { "type": "perfect_lesson", "value": 1 },
     "xpBonus": 50
   },
   {
-    "id": "knowledge-seeker",
-    "name": "Knowledge Seeker",
-    "description": "Earn 1000 total XP",
-    "icon": "FiBookOpen",
-    "color": "blue",
-    "condition": { "type": "total_xp", "value": 1000 },
-    "xpBonus": 100
-  },
-  {
-    "id": "champion",
+    "id": "knowledge-champion",
     "name": "Knowledge Champion",
     "description": "Complete all available lessons",
-    "icon": "FiTrendingUp",
+    "icon": "FiAward",
     "color": "purple",
-    "condition": { "type": "lessons_completed", "value": 17 },
-    "xpBonus": 1000
+    "condition": { "type": "all_lessons", "value": true },
+    "xpBonus": 500
+  },
+  {
+    "id": "basics-master",
+    "name": "Basics Master",
+    "description": "Complete all Basics lessons",
+    "icon": "FiBook",
+    "color": "blue",
+    "condition": { "type": "category_completed", "value": "basics" },
+    "xpBonus": 75
   }
 ]
