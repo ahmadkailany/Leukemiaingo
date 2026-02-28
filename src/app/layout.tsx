@@ -1,37 +1,29 @@
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import './globals.css';
+import Header from '@/components/layout/Header';
+import Footer from '@/components/layout/Footer';
 
-const inter = Inter({
-  subsets: ['latin'],
-  variable: '--font-inter',
-  display: 'swap',
-});
+const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: {
-    default: 'Leukemiaingo — Learn. Spread Awareness. Fight Leukemia.',
-    template: '%s | Leukemiaingo',
-  },
-  description:
-    'A Duolingo-style gamified platform for leukemia awareness. Learn through bite-sized lessons, earn badges, and climb the leaderboard.',
-  keywords: ['leukemia', 'awareness', 'education', 'cancer', 'health', 'gamification'],
+  title: 'Leukemiaingo - Learn. Fight. Spread Awareness.',
+  description: 'A Duolingo-style app to spread leukemia awareness through gamified learning, badges, streaks and leaderboards.',
+  keywords: ['leukemia', 'awareness', 'education', 'cancer', 'health', 'gamified learning'],
   openGraph: {
     title: 'Leukemiaingo',
-    description: 'Learn about leukemia in a fun, gamified way.',
+    description: 'Learn about leukemia the fun way',
     type: 'website',
   },
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={inter.variable}>
-      <body className="min-h-screen bg-white font-sans antialiased">
-        {children}
+    <html lang="en">
+      <body className={`${inter.className} bg-gray-50 min-h-screen flex flex-col`}>
+        <Header />
+        <main className="flex-1">{children}</main>
+        <Footer />
       </body>
     </html>
   );

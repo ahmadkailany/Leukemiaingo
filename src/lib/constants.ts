@@ -1,50 +1,27 @@
-export const APP_NAME = 'Leukemiaingo';
-export const APP_TAGLINE = 'Learn · Spread Awareness · Fight Leukemia';
+// Level XP thresholds - change here to update everywhere
+export const LEVEL_THRESHOLDS = [0, 500, 2000, 5000, 10000, 20000];
 
-export const XP_PER_CORRECT_ANSWER = 10;
-export const XP_PERFECT_LESSON_BONUS = 50;
-export const QUESTIONS_PER_LESSON = 5;
+// Level display names
+export const LEVEL_NAMES = ['Beginner', 'Fighter', 'Warrior', 'Champion', 'Legend', 'Master'];
 
-export const STREAK_FREEZE_MAX = 2;
-
-export const LEADERBOARD_TOP_N = 10;
-
-export const CATEGORY_LABELS: Record<string, string> = {
-  basics: 'The Basics',
-  symptoms: 'Symptoms & Detection',
-  risks: 'Risk Factors',
-  treatment: 'Treatment',
-  support: 'Support & Action',
-};
-
-export const CATEGORY_DESCRIPTIONS: Record<string, string> = {
-  basics: 'Understand what leukemia is and how it affects the body.',
-  symptoms: 'Learn to recognize the warning signs early.',
-  risks: 'Discover who is at risk and why.',
-  treatment: 'Explore modern treatment options and what to expect.',
-  support: 'Learn how to help yourself or others affected by leukemia.',
-};
-
-export const CATEGORY_ICONS: Record<string, string> = {
-  basics: 'MdScience',
-  symptoms: 'MdSearch',
-  risks: 'MdWarning',
-  treatment: 'MdLocalHospital',
-  support: 'MdFavorite',
-};
-
-export const DIFFICULTY_LABELS: Record<string, string> = {
-  easy: 'Easy',
-  medium: 'Medium',
-  hard: 'Hard',
-};
-
-export const LEVEL_NAMES = [
-  'Newcomer',
-  'Fighter',
-  'Warrior',
-  'Champion',
-  'Legend',
+// Lesson categories
+export const CATEGORIES = [
+  { value: 'basics', label: 'Basics', color: 'orange', emoji: '\uD83E\uDDA0' },
+  { value: 'symptoms', label: 'Symptoms & Detection', color: 'red', emoji: '\uD83D\uDD0D' },
+  { value: 'risks', label: 'Risk Factors', color: 'yellow', emoji: '\u26A0\uFE0F' },
+  { value: 'treatment', label: 'Treatment', color: 'green', emoji: '\uD83D\uDC89' },
+  { value: 'support', label: 'Support & Action', color: 'blue', emoji: '\uD83E\uDD1D' },
 ];
 
-export const MOCK_CURRENT_USER_ID = 'user-001';
+// XP rewards
+export const XP_PER_CORRECT = 10;
+export const XP_PERFECT_BONUS = 50;
+export const XP_STREAK_7_BONUS = 100;
+export const XP_STREAK_30_BONUS = 500;
+
+// App info
+export const APP_NAME = 'Leukemiaingo';
+export const APP_DESCRIPTION = 'Learn about leukemia the Duolingo way';
+
+// Admin key (MVP - replace with real auth later)
+export const ADMIN_KEY = process.env.ADMIN_KEY || 'admin-secret-key';

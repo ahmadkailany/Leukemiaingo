@@ -1,113 +1,108 @@
 'use client';
 
 import { create } from 'zustand';
-import { persist, createJSONStorage } from 'zustand/middleware';
-import type { User } from '@/types/user';
-import type { Lesson } from '@/types/lesson';
-import type { LeaderboardEntry } from '@/types/user';
-import { getLevel } from './utils';
+import { persist } from 'zustand/middleware';
+import { User } from '@/types/user';
 
 interface AppStore {
-  // --- Current User ---
-  currentUser: User | null;
-  setCurrentUser: (user: User) => void;
-  updateUserXP: (xp: number) => void;
-  completeLesson: (lessonId: string, xpEarned: number) => void;
-  earnBadge: (badgeId: string) => void;
+  // User state
+  user: User | null;
+  setUser: (user: User | null) => void;
+  updateUserXP: (newXP: number, newLevel: number, newStreak: number) => void;
+  addCompletedLesson: (lessonId: string) => void;
+  addBadge: (badgeId: string) => void;
 
-  // --- Lessons ---
-  lessons: Lesson[];
-  setLessons: (lessons: Lesson[]) => void;
-
-  // --- Leaderboard ---
-  leaderboard: LeaderboardEntry[];
-  setLeaderboard: (entries: LeaderboardEntry[]) => void;
-
-  // --- UI State ---
+  // UI state
   isLoading: boolean;
-  setIsLoading: (v: boolean) => void;
-  activeTab: 'weekly' | 'allTime';
-  setActiveTab: (tab: 'weekly' | 'allTime') => void;
+  setLoading: (v: boolean) => void;
+  toast: { message: string; type: 'success' | 'error' | 'info' } | null;
+  showToast: (message: string, type?: 'success' | 'error' | 'info') => void;
+  clearToast: () => void;
 }
 
-export const useAppStore = create<AppStore>()(
+export const useStore = create<AppStore>()(
   persist(
     (set, get) => ({
-      // --- User ---
-      currentUser: null,
-      setCurrentUser: (user) => set({ currentUser: user }),
-
-      updateUserXP: (xp) => {
-        const user = get().currentUser;
-        if (!user) return;
-        const newXP = user.stats.totalXP + xp;
-        const newLevel = getLevel(newXP).level;
-        set({
-          currentUser: {
-            ...user,
-            stats: {
-              ...user.stats,
-              totalXP: newXP,
-              weeklyXP: user.stats.weeklyXP + xp,
-              level: newLevel,
-            },
-          },
-        });
+      user: {
+        id: 'user-001',
+        username: 'LeukemiaFighter',
+        email: 'demo@leukemiaingo.com',
+        avatar: 'orange',
+        createdAt: '2026-01-01T10:00:00Z',
+        lastActiveAt: new Date().toISOString(),
+        role: 'user',
+        stats: {
+          totalXP: 0,
+          level: 1,
+          currentStreak: 0,
+          longestStreak: 0,
+          weeklyXP: 0,
+          lessonsCompleted: [],
+          badgesEarned: [],
+          streakFreezeAvailable: 1,
+        },
       },
+      setUser: (user) => set({ user }),
 
-      completeLesson: (lessonId, xpEarned) => {
-        const user = get().currentUser;
-        if (!user) return;
-        if (user.stats.lessonsCompleted.includes(lessonId)) return;
-        const newXP = user.stats.totalXP + xpEarned;
-        const newLevel = getLevel(newXP).level;
-        set({
-          currentUser: {
-            ...user,
-            stats: {
-              ...user.stats,
-              totalXP: newXP,
-              weeklyXP: user.stats.weeklyXP + xpEarned,
-              level: newLevel,
-              lessonsCompleted: [...user.stats.lessonsCompleted, lessonId],
-            },
-          },
-        });
-      },
+      updateUserXP: (newXP, newLevel, newStreak) =>
+        set((state) => ({
+          user: state.user
+            ? {
+                ...state.user,
+                stats: {
+                  ...state.user.stats,
+                  totalXP: newXP,
+                  level: newLevel,
+                  currentStreak: newStreak,
+                  longestStreak: Math.max(state.user.stats.longestStreak, newStreak),
+                },
+              }
+            : null,
+        })),
 
-      earnBadge: (badgeId) => {
-        const user = get().currentUser;
-        if (!user) return;
-        if (user.stats.badgesEarned.includes(badgeId)) return;
-        set({
-          currentUser: {
-            ...user,
-            stats: {
-              ...user.stats,
-              badgesEarned: [...user.stats.badgesEarned, badgeId],
-            },
-          },
-        });
-      },
+      addCompletedLesson: (lessonId) =>
+        set((state) => ({
+          user: state.user
+            ? {
+                ...state.user,
+                stats: {
+                  ...state.user.stats,
+                  lessonsCompleted: state.user.stats.lessonsCompleted.includes(lessonId)
+                    ? state.user.stats.lessonsCompleted
+                    : [...state.user.stats.lessonsCompleted, lessonId],
+                },
+              }
+            : null,
+        })),
 
-      // --- Lessons ---
-      lessons: [],
-      setLessons: (lessons) => set({ lessons }),
+      addBadge: (badgeId) =>
+        set((state) => ({
+          user: state.user
+            ? {
+                ...state.user,
+                stats: {
+                  ...state.user.stats,
+                  badgesEarned: state.user.stats.badgesEarned.includes(badgeId)
+                    ? state.user.stats.badgesEarned
+                    : [...state.user.stats.badgesEarned, badgeId],
+                },
+              }
+            : null,
+        })),
 
-      // --- Leaderboard ---
-      leaderboard: [],
-      setLeaderboard: (entries) => set({ leaderboard: entries }),
-
-      // --- UI ---
       isLoading: false,
-      setIsLoading: (v) => set({ isLoading: v }),
-      activeTab: 'weekly',
-      setActiveTab: (tab) => set({ activeTab: tab }),
+      setLoading: (v) => set({ isLoading: v }),
+
+      toast: null,
+      showToast: (message, type = 'info') => {
+        set({ toast: { message, type } });
+        setTimeout(() => get().clearToast(), 3000);
+      },
+      clearToast: () => set({ toast: null }),
     }),
     {
-      name: 'leukemiaingo-storage',
-      storage: createJSONStorage(() => localStorage),
-      partialize: (state) => ({ currentUser: state.currentUser }),
+      name: 'leukemiaingo-store',
+      partialize: (state) => ({ user: state.user }),
     }
   )
 );
