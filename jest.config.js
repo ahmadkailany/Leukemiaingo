@@ -8,7 +8,8 @@ const createJestConfig = nextJest({
 const config = {
   coverageProvider: 'v8',
   testEnvironment: 'jsdom',
-  setupFilesAfterFramework: ['<rootDir>/jest.setup.ts'],
+  // ✅ correct Jest key - loads @testing-library/jest-dom matchers
+  setupFilesAfterEnv: ['<rootDir>/jest.setup.ts'],
   moduleNameMapper: {
     '^@/(.*)$': '<rootDir>/src/$1',
     '\\.(css|scss)$': 'identity-obj-proxy',
