@@ -1,34 +1,57 @@
-import { NextResponse } from 'next/server';
-import { readFileSync } from 'fs';
-import { join } from 'path';
-import type { Lesson } from '@/types/lesson';
+import { NextRequest, NextResponse } from 'next/server';
+import fs from 'fs';
+import path from 'path';
+import { Lesson } from '@/types/lesson';
 
-function getLessonsFromFile(): Lesson[] {
-  const filePath = join(process.cwd(), 'data', 'lessons.json');
-  const raw = readFileSync(filePath, 'utf-8');
+function getLessonsData(): Lesson[] {
+  const filePath = path.join(process.cwd(), 'data', 'lessons.json');
+  const raw = fs.readFileSync(filePath, 'utf-8');
   return JSON.parse(raw);
 }
 
-export async function GET() {
+function saveLessonsData(lessons: Lesson[]) {
+  const filePath = path.join(process.cwd(), 'data', 'lessons.json');
+  fs.writeFileSync(filePath, JSON.stringify(lessons, null, 2));
+}
+
+export async function GET(req: NextRequest) {
   try {
-    const lessons = getLessonsFromFile();
-    return NextResponse.json({ lessons });
+    const { searchParams } = new URL(req.url);
+    const category = searchParams.get('category');
+    const page = parseInt(searchParams.get('page') || '1');
+    const limit = parseInt(searchParams.get('limit') || '20');
+
+    let lessons = getLessonsData();
+
+    if (category) {
+      lessons = lessons.filter((l) => l.category === category);
+    }
+
+    // Strip questions for list view (lighter payload)
+    const lightLessons = lessons.map(({ questions: _q, ...rest }) => rest);
+    const start = (page - 1) * limit;
+    const paginated = lightLessons.slice(start, start + limit);
+
+    return NextResponse.json({
+      lessons: paginated,
+      pagination: { total: lessons.length, page, limit, totalPages: Math.ceil(lessons.length / limit) },
+    });
   } catch {
-    return NextResponse.json({ error: 'Failed to read lessons' }, { status: 500 });
+    return NextResponse.json({ error: 'Failed to load lessons' }, { status: 500 });
   }
 }
 
-export async function POST(request: Request) {
+export async function POST(req: NextRequest) {
   try {
-    const body = await request.json();
-    const lessons = getLessonsFromFile();
+    const body = await req.json();
+    const lessons = getLessonsData();
     const newLesson: Lesson = {
       ...body,
       id: `lesson-${String(lessons.length + 1).padStart(3, '0')}`,
-      order: lessons.length + 1,
     };
-    // NOTE: In production, write to DB instead
-    return NextResponse.json({ message: 'Lesson created', lesson: newLesson }, { status: 201 });
+    lessons.push(newLesson);
+    saveLessonsData(lessons);
+    return NextResponse.json({ message: 'Lesson created', lessonId: newLesson.id }, { status: 201 });
   } catch {
     return NextResponse.json({ error: 'Failed to create lesson' }, { status: 500 });
   }
