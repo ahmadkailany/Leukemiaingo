@@ -1,0 +1,83 @@
+[
+  {
+    "id": "first-steps",
+    "name": "First Steps",
+    "description": "Complete your very first lesson",
+    "icon": "FiTarget",
+    "color": "orange",
+    "condition": { "type": "lessons_completed", "value": 1 },
+    "xpBonus": 25
+  },
+  {
+    "id": "symptom-spotter",
+    "name": "Symptom Spotter",
+    "description": "Complete all Symptoms & Detection lessons",
+    "icon": "FiEye",
+    "color": "red",
+    "condition": { "type": "category_complete", "value": 1, "category": "symptoms" },
+    "xpBonus": 75
+  },
+  {
+    "id": "risk-aware",
+    "name": "Risk Aware",
+    "description": "Complete all Risk Factors lessons",
+    "icon": "FiShield",
+    "color": "yellow",
+    "condition": { "type": "category_complete", "value": 1, "category": "risks" },
+    "xpBonus": 75
+  },
+  {
+    "id": "treatment-expert",
+    "name": "Treatment Expert",
+    "description": "Complete all Treatment lessons",
+    "icon": "FiHeart",
+    "color": "green",
+    "condition": { "type": "category_complete", "value": 1, "category": "treatment" },
+    "xpBonus": 75
+  },
+  {
+    "id": "week-warrior",
+    "name": "Week Warrior",
+    "description": "Maintain a 7-day learning streak",
+    "icon": "FiZap",
+    "color": "orange",
+    "condition": { "type": "streak", "value": 7 },
+    "xpBonus": 100
+  },
+  {
+    "id": "month-master",
+    "name": "Month Master",
+    "description": "Maintain a 30-day learning streak",
+    "icon": "FiAward",
+    "color": "gold",
+    "condition": { "type": "streak", "value": 30 },
+    "xpBonus": 500
+  },
+  {
+    "id": "perfect-score",
+    "name": "Perfect Score",
+    "description": "Get 100% on any lesson",
+    "icon": "FiStar",
+    "color": "yellow",
+    "condition": { "type": "perfect_score", "value": 1 },
+    "xpBonus": 50
+  },
+  {
+    "id": "knowledge-seeker",
+    "name": "Knowledge Seeker",
+    "description": "Earn 1000 total XP",
+    "icon": "FiBookOpen",
+    "color": "blue",
+    "condition": { "type": "total_xp", "value": 1000 },
+    "xpBonus": 100
+  },
+  {
+    "id": "champion",
+    "name": "Knowledge Champion",
+    "description": "Complete all available lessons",
+    "icon": "FiTrendingUp",
+    "color": "purple",
+    "condition": { "type": "lessons_completed", "value": 17 },
+    "xpBonus": 1000
+  }
+]

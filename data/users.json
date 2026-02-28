@@ -1,0 +1,97 @@
+[
+  {
+    "id": "user-001",
+    "username": "Ahmad",
+    "email": "admin@leukemiaingo.com",
+    "avatar": "orange",
+    "role": "admin",
+    "createdAt": "2026-02-01T10:00:00Z",
+    "lastActiveAt": "2026-03-01T00:00:00Z",
+    "stats": {
+      "totalXP": 350,
+      "level": 1,
+      "currentStreak": 5,
+      "longestStreak": 5,
+      "lessonsCompleted": ["lesson-001", "lesson-002"],
+      "badgesEarned": ["first-steps"],
+      "streakFreezeAvailable": 1,
+      "weeklyXP": 350
+    }
+  },
+  {
+    "id": "user-002",
+    "username": "LeukemiaFighter",
+    "email": "fighter@example.com",
+    "avatar": "blue",
+    "role": "user",
+    "createdAt": "2026-02-05T10:00:00Z",
+    "lastActiveAt": "2026-03-01T00:00:00Z",
+    "stats": {
+      "totalXP": 920,
+      "level": 2,
+      "currentStreak": 12,
+      "longestStreak": 12,
+      "lessonsCompleted": ["lesson-001", "lesson-002", "lesson-003", "lesson-004", "lesson-005"],
+      "badgesEarned": ["first-steps", "week-warrior", "symptom-spotter"],
+      "streakFreezeAvailable": 2,
+      "weeklyXP": 420
+    }
+  },
+  {
+    "id": "user-003",
+    "username": "HopeRunner",
+    "email": "hope@example.com",
+    "avatar": "green",
+    "role": "user",
+    "createdAt": "2026-02-10T10:00:00Z",
+    "lastActiveAt": "2026-02-28T10:00:00Z",
+    "stats": {
+      "totalXP": 650,
+      "level": 2,
+      "currentStreak": 8,
+      "longestStreak": 10,
+      "lessonsCompleted": ["lesson-001", "lesson-002", "lesson-003"],
+      "badgesEarned": ["first-steps", "perfect-score"],
+      "streakFreezeAvailable": 1,
+      "weeklyXP": 280
+    }
+  },
+  {
+    "id": "user-004",
+    "username": "BloodWarrior",
+    "email": "warrior@example.com",
+    "avatar": "purple",
+    "role": "user",
+    "createdAt": "2026-02-15T10:00:00Z",
+    "lastActiveAt": "2026-02-27T10:00:00Z",
+    "stats": {
+      "totalXP": 480,
+      "level": 1,
+      "currentStreak": 3,
+      "longestStreak": 6,
+      "lessonsCompleted": ["lesson-001", "lesson-002"],
+      "badgesEarned": ["first-steps"],
+      "streakFreezeAvailable": 0,
+      "weeklyXP": 120
+    }
+  },
+  {
+    "id": "user-005",
+    "username": "AwarenessStar",
+    "email": "star@example.com",
+    "avatar": "red",
+    "role": "user",
+    "createdAt": "2026-02-20T10:00:00Z",
+    "lastActiveAt": "2026-02-28T10:00:00Z",
+    "stats": {
+      "totalXP": 210,
+      "level": 1,
+      "currentStreak": 2,
+      "longestStreak": 2,
+      "lessonsCompleted": ["lesson-001"],
+      "badgesEarned": ["first-steps"],
+      "streakFreezeAvailable": 1,
+      "weeklyXP": 210
+    }
+  }
+]

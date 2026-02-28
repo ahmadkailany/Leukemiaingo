@@ -1,0 +1,17 @@
+{
+  "weekly": [
+    { "rank": 1, "userId": "user-002", "username": "LeukemiaFighter", "xp": 420, "avatar": "blue", "currentStreak": 12 },
+    { "rank": 2, "userId": "user-001", "username": "Ahmad", "xp": 350, "avatar": "orange", "currentStreak": 5 },
+    { "rank": 3, "userId": "user-003", "username": "HopeRunner", "xp": 280, "avatar": "green", "currentStreak": 8 },
+    { "rank": 4, "userId": "user-004", "username": "BloodWarrior", "xp": 120, "avatar": "purple", "currentStreak": 3 },
+    { "rank": 5, "userId": "user-005", "username": "AwarenessStar", "xp": 210, "avatar": "red", "currentStreak": 2 }
+  ],
+  "allTime": [
+    { "rank": 1, "userId": "user-002", "username": "LeukemiaFighter", "xp": 920, "avatar": "blue", "currentStreak": 12 },
+    { "rank": 2, "userId": "user-003", "username": "HopeRunner", "xp": 650, "avatar": "green", "currentStreak": 8 },
+    { "rank": 3, "userId": "user-001", "username": "Ahmad", "xp": 350, "avatar": "orange", "currentStreak": 5 },
+    { "rank": 4, "userId": "user-004", "username": "BloodWarrior", "xp": 480, "avatar": "purple", "currentStreak": 3 },
+    { "rank": 5, "userId": "user-005", "username": "AwarenessStar", "xp": 210, "avatar": "red", "currentStreak": 2 }
+  ],
+  "lastWeeklyReset": "2026-02-24T00:00:00Z"
+}
