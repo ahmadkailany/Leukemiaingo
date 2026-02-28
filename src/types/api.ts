@@ -4,16 +4,23 @@ export interface ApiResponse<T> {
   message?: string;
 }
 
-export interface PaginatedResponse<T> extends ApiResponse<T[]> {
-  pagination: {
-    total: number;
-    page: number;
-    limit: number;
-    totalPages: number;
-  };
+export interface PaginationMeta {
+  total: number;
+  page: number;
+  limit: number;
+  totalPages: number;
 }
 
-export interface ProgressUpdate {
+export interface LeaderboardEntry {
+  userId: string;
+  username: string;
+  xp: number;
+  rank: number;
+  avatar: string;
+  streak: number;
+}
+
+export interface ProgressPayload {
   userId: string;
   lessonId: string;
   score: number;
@@ -22,9 +29,9 @@ export interface ProgressUpdate {
 
 export interface ProgressResponse {
   success: boolean;
+  score: number;
   newXP: number;
   newLevel: number;
+  newStreak: number;
   badgesEarned: string[];
-  streakUpdated: boolean;
-  leveledUp: boolean;
 }

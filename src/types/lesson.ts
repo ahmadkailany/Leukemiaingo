@@ -1,17 +1,6 @@
-export type QuestionType = 'multiple-choice' | 'true-false' | 'fill-blank';
-
-export type LessonCategory =
-  | 'basics'
-  | 'symptoms'
-  | 'risks'
-  | 'treatment'
-  | 'support';
-
-export type Difficulty = 'easy' | 'medium' | 'hard';
-
 export interface Question {
   id: string;
-  type: QuestionType;
+  type: 'multiple-choice' | 'true-false' | 'fill-blank';
   questionText: string;
   options?: string[];
   correctAnswer: string;
@@ -21,18 +10,14 @@ export interface Question {
 export interface Lesson {
   id: string;
   title: string;
-  category: LessonCategory;
+  category: 'basics' | 'symptoms' | 'risks' | 'treatment' | 'support';
   description: string;
-  difficulty: Difficulty;
+  difficulty: 'easy' | 'medium' | 'hard';
   xpReward: number;
   order: number;
-  questions: Question[];
   icon: string;
+  color: string;
+  questions: Question[];
 }
 
-export interface LessonProgress {
-  lessonId: string;
-  score: number;
-  completedAt: string;
-  xpEarned: number;
-}
+export type LessonLight = Omit<Lesson, 'questions'>;

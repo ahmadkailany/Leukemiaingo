@@ -1,14 +1,6 @@
-export type BadgeConditionType =
-  | 'lessons_completed'
-  | 'streak'
-  | 'perfect_score'
-  | 'category_complete'
-  | 'total_xp';
-
 export interface BadgeCondition {
-  type: BadgeConditionType;
-  value: number;
-  category?: string;
+  type: 'lessons_completed' | 'streak' | 'all_lessons' | 'category_completed' | 'perfect_lesson';
+  value: number | string | boolean;
 }
 
 export interface Badge {
@@ -16,12 +8,7 @@ export interface Badge {
   name: string;
   description: string;
   icon: string;
+  color: string;
   condition: BadgeCondition;
   xpBonus: number;
-  color: string;
-}
-
-export interface EarnedBadge extends Badge {
-  earnedAt: string;
-  earned: boolean;
 }

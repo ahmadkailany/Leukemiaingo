@@ -1,14 +1,12 @@
-export type UserRole = 'user' | 'admin';
-
 export interface UserStats {
   totalXP: number;
   level: number;
   currentStreak: number;
   longestStreak: number;
+  weeklyXP: number;
   lessonsCompleted: string[];
   badgesEarned: string[];
   streakFreezeAvailable: number;
-  weeklyXP: number;
 }
 
 export interface User {
@@ -16,17 +14,8 @@ export interface User {
   username: string;
   email: string;
   avatar: string;
-  role: UserRole;
   createdAt: string;
   lastActiveAt: string;
+  role: 'user' | 'admin';
   stats: UserStats;
-}
-
-export interface LeaderboardEntry {
-  rank: number;
-  userId: string;
-  username: string;
-  xp: number;
-  avatar: string;
-  currentStreak: number;
 }
