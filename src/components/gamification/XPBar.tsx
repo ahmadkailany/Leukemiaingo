@@ -1,45 +1,46 @@
 'use client';
 
-import { FiZap } from 'react-icons/fi';
-import Progress from '@/components/ui/Progress';
-import { getLevelProgress, getLevel, formatNumber } from '@/lib/utils';
+import { LEVEL_THRESHOLDS } from '@/lib/constants';
 
-interface XPBarProps {
+interface Props {
   xp: number;
-  showNumbers?: boolean;
-  className?: string;
+  level: number;
+  compact?: boolean;
 }
 
-export default function XPBar({ xp, showNumbers = true, className }: XPBarProps) {
-  const level = getLevel(xp);
-  const progress = getLevelProgress(xp);
-  const nextLevel = level.level < 5 ? level.level + 1 : null;
+export default function XPBar({ xp, level, compact = false }: Props) {
+  const currentThreshold = LEVEL_THRESHOLDS[level - 1] || 0;
+  const nextThreshold = LEVEL_THRESHOLDS[level] || LEVEL_THRESHOLDS[LEVEL_THRESHOLDS.length - 1];
+  const progress = Math.min(((xp - currentThreshold) / (nextThreshold - currentThreshold)) * 100, 100);
+
+  if (compact) {
+    return (
+      <div className="flex items-center gap-2">
+        <span className="text-xs font-bold text-gray-500">Lv.{level}</span>
+        <div className="w-20 h-2 bg-gray-200 rounded-full overflow-hidden">
+          <div
+            className="h-full bg-gradient-to-r from-orange-400 to-orange-500 rounded-full transition-all duration-500"
+            style={{ width: `${progress}%` }}
+          />
+        </div>
+        <span className="text-xs text-orange-500 font-bold">{xp} XP</span>
+      </div>
+    );
+  }
 
   return (
-    <div className={className}>
-      <div className="flex items-center justify-between mb-2">
-        <div className="flex items-center gap-1.5">
-          <div
-            className="w-6 h-6 rounded-lg flex items-center justify-center text-white text-xs font-bold"
-            style={{ backgroundColor: level.color }}
-          >
-            {level.level}
-          </div>
-          <span className="text-sm font-semibold text-gray-700">{level.name}</span>
-        </div>
-        {showNumbers && (
-          <div className="flex items-center gap-1 text-xs text-amber-600 font-semibold">
-            <FiZap className="w-3.5 h-3.5" />
-            <span>{formatNumber(xp)} XP</span>
-          </div>
-        )}
+    <div className="bg-white border border-gray-200 rounded-2xl p-4">
+      <div className="flex justify-between items-center mb-2">
+        <span className="font-bold text-gray-700">Level {level}</span>
+        <span className="text-sm text-orange-500 font-semibold">{xp} / {nextThreshold} XP</span>
       </div>
-      <Progress value={progress} color="orange" size="md" animated />
-      {nextLevel && showNumbers && (
-        <p className="text-xs text-gray-400 mt-1 text-right">
-          {formatNumber(level.maxXP - xp)} XP to Level {nextLevel}
-        </p>
-      )}
+      <div className="w-full h-3 bg-gray-100 rounded-full overflow-hidden">
+        <div
+          className="h-full bg-gradient-to-r from-orange-400 to-orange-600 rounded-full transition-all duration-700"
+          style={{ width: `${progress}%` }}
+        />
+      </div>
+      <p className="text-xs text-gray-400 mt-1">{nextThreshold - xp} XP to Level {level + 1}</p>
     </div>
   );
 }

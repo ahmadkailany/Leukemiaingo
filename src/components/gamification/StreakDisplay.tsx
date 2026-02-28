@@ -1,38 +1,32 @@
 'use client';
 
-import { MdLocalFireDepartment } from 'react-icons/md';
-import { cn } from '@/lib/utils';
+import { FiZap } from 'react-icons/fi';
 
-interface StreakDisplayProps {
+interface Props {
   streak: number;
-  size?: 'sm' | 'md' | 'lg';
-  className?: string;
+  compact?: boolean;
 }
 
-export default function StreakDisplay({ streak, size = 'md', className }: StreakDisplayProps) {
-  const sizes = {
-    sm: { container: 'px-3 py-1.5', icon: 'w-4 h-4', text: 'text-sm' },
-    md: { container: 'px-4 py-2', icon: 'w-5 h-5', text: 'text-base' },
-    lg: { container: 'px-6 py-3', icon: 'w-7 h-7', text: 'text-xl' },
-  };
-
-  const s = sizes[size];
+export default function StreakDisplay({ streak, compact = false }: Props) {
+  if (compact) {
+    return (
+      <div className="flex items-center gap-1 bg-orange-50 border border-orange-200 rounded-full px-3 py-1">
+        <FiZap className="text-orange-500 text-sm" />
+        <span className="text-orange-600 font-bold text-sm">{streak}</span>
+      </div>
+    );
+  }
 
   return (
-    <div
-      className={cn(
-        'flex items-center gap-2 bg-gradient-to-r from-red-50 to-orange-50 rounded-2xl border border-red-100',
-        s.container,
-        className
+    <div className="flex flex-col items-center bg-gradient-to-b from-orange-50 to-orange-100 border border-orange-200 rounded-2xl p-4">
+      <FiZap className="text-orange-500 text-4xl mb-1" />
+      <span className="text-3xl font-extrabold text-orange-600">{streak}</span>
+      <span className="text-xs text-orange-400 font-medium uppercase tracking-wide">Day Streak</span>
+      {streak >= 7 && (
+        <span className="mt-2 text-xs bg-orange-500 text-white rounded-full px-2 py-0.5">
+          {streak >= 30 ? '🏆 Month Master' : streak >= 7 ? '⚡ Week Warrior' : ''}
+        </span>
       )}
-    >
-      <MdLocalFireDepartment
-        className={cn(s.icon, 'text-red-500', streak > 0 && 'animate-pulse')}
-      />
-      <div>
-        <p className={cn('font-extrabold text-gray-900', s.text)}>{streak}</p>
-        <p className="text-xs text-gray-500">day streak</p>
-      </div>
     </div>
   );
 }

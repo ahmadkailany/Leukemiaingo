@@ -1,26 +1,17 @@
-import { getLevel } from '@/lib/utils';
+'use client';
 
-interface LevelIndicatorProps {
-  xp: number;
-  size?: 'sm' | 'md' | 'lg';
+import { LEVEL_NAMES } from '@/lib/constants';
+
+interface Props {
+  level: number;
 }
 
-export default function LevelIndicator({ xp, size = 'md' }: LevelIndicatorProps) {
-  const level = getLevel(xp);
-  const sizes = {
-    sm: 'w-8 h-8 text-sm',
-    md: 'w-11 h-11 text-base',
-    lg: 'w-14 h-14 text-xl',
-  };
-
+export default function LevelIndicator({ level }: Props) {
+  const levelName = LEVEL_NAMES[level - 1] || 'Champion';
   return (
-    <div
-      className={`${sizes[size]} rounded-2xl flex flex-col items-center justify-center text-white font-extrabold shadow-md`}
-      style={{ backgroundColor: level.color }}
-      title={`Level ${level.level}: ${level.name}`}
-    >
-      <span className="leading-none">{level.level}</span>
-      {size === 'lg' && <span className="text-xs font-semibold opacity-80 mt-0.5">{level.name}</span>}
+    <div className="inline-flex items-center gap-2 bg-gradient-to-r from-orange-500 to-orange-600 text-white rounded-full px-4 py-1.5 shadow">
+      <span className="font-bold text-sm">Lv.{level}</span>
+      <span className="text-xs opacity-80">{levelName}</span>
     </div>
   );
 }
