@@ -89,7 +89,7 @@
         "questionText": "AML stands for:",
         "options": ["Active Myeloid Leukemia", "Acute Myeloid Leukemia", "Advanced Marrow Leukemia", "Autoimmune Myeloid Leukemia"],
         "correctAnswer": "Acute Myeloid Leukemia",
-        "explanation": "AML (Acute Myeloid Leukemia) is a fast-growing cancer that starts in myeloid cells - the cells that normally develop into red blood cells, platelets, and some white blood cells."
+        "explanation": "AML (Acute Myeloid Leukemia) is a fast-growing cancer that starts in myeloid cells."
       },
       {
         "id": "q5",
@@ -132,7 +132,7 @@
         "questionText": "Why do leukemia patients often experience unexplained bruising or bleeding?",
         "options": ["Due to medication side effects", "Low platelet count from crowded bone marrow", "Vitamin K deficiency", "High blood pressure"],
         "correctAnswer": "Low platelet count from crowded bone marrow",
-        "explanation": "When leukemia cells crowd the bone marrow, fewer platelets are produced. Platelets are essential for blood clotting, so low counts cause easy bruising and bleeding."
+        "explanation": "When leukemia cells crowd the bone marrow, fewer platelets are produced. Low platelet counts cause easy bruising and bleeding."
       },
       {
         "id": "q4",
@@ -147,7 +147,7 @@
         "questionText": "If you notice several of these symptoms together, what should you do?",
         "options": ["Wait to see if they go away", "Search symptoms online only", "See a doctor immediately", "Take vitamins and rest"],
         "correctAnswer": "See a doctor immediately",
-        "explanation": "Early detection significantly improves treatment outcomes. Never ignore a combination of these symptoms — see a doctor for proper blood tests."
+        "explanation": "Early detection significantly improves treatment outcomes. Never ignore a combination of these symptoms."
       }
     ]
   },
@@ -168,14 +168,14 @@
         "questionText": "Which genetic condition is associated with an increased risk of leukemia?",
         "options": ["Diabetes", "Down syndrome", "Asthma", "Celiac disease"],
         "correctAnswer": "Down syndrome",
-        "explanation": "Children with Down syndrome (trisomy 21) have a 10-20x higher risk of developing acute leukemia compared to children without the condition."
+        "explanation": "Children with Down syndrome have a 10-20x higher risk of developing acute leukemia."
       },
       {
         "id": "q2",
         "type": "true-false",
         "questionText": "Exposure to high levels of radiation increases the risk of leukemia.",
         "correctAnswer": "true",
-        "explanation": "Radiation exposure, such as from atomic bomb survivors or previous radiation therapy, significantly increases leukemia risk, particularly AML."
+        "explanation": "Radiation exposure significantly increases leukemia risk, particularly AML."
       },
       {
         "id": "q3",
@@ -183,7 +183,7 @@
         "questionText": "Which chemical exposure is linked to leukemia risk?",
         "options": ["Caffeine", "Benzene", "Chlorine", "Carbon dioxide"],
         "correctAnswer": "Benzene",
-        "explanation": "Benzene is an industrial chemical found in cigarette smoke, gasoline, and some plastics. Long-term exposure is strongly linked to AML development."
+        "explanation": "Benzene is found in cigarette smoke and gasoline. Long-term exposure is strongly linked to AML."
       },
       {
         "id": "q4",
@@ -197,7 +197,7 @@
         "type": "fill-blank",
         "questionText": "Having a family history of leukemia slightly increases your _____ of developing it.",
         "correctAnswer": "risk",
-        "explanation": "While most leukemia cases are not directly inherited, having a first-degree relative with certain types of leukemia does increase your personal risk."
+        "explanation": "While most leukemia cases are not directly inherited, having a first-degree relative with certain types does increase your personal risk."
       }
     ]
   },
@@ -218,14 +218,14 @@
         "questionText": "What is the most common first-line treatment for acute leukemia?",
         "options": ["Surgery", "Chemotherapy", "Radiation alone", "Vitamin supplements"],
         "correctAnswer": "Chemotherapy",
-        "explanation": "Chemotherapy uses drugs to kill or stop the growth of cancer cells. It is the primary treatment for most leukemia types, often given in cycles."
+        "explanation": "Chemotherapy uses drugs to kill or stop the growth of cancer cells. It is the primary treatment for most leukemia types."
       },
       {
         "id": "q2",
         "type": "true-false",
         "questionText": "A bone marrow transplant can potentially cure some types of leukemia.",
         "correctAnswer": "true",
-        "explanation": "Stem cell (bone marrow) transplants replace diseased bone marrow with healthy donor cells and can offer a cure for eligible patients, particularly for AML and ALL."
+        "explanation": "Stem cell (bone marrow) transplants replace diseased bone marrow with healthy donor cells and can offer a cure for eligible patients."
       },
       {
         "id": "q3",
@@ -233,21 +233,524 @@
         "questionText": "What does targeted therapy do differently from traditional chemotherapy?",
         "options": ["It is less expensive", "It targets specific cancer cell mutations with fewer side effects", "It works faster", "It is only for children"],
         "correctAnswer": "It targets specific cancer cell mutations with fewer side effects",
-        "explanation": "Targeted therapies like imatinib (Gleevec) for CML are designed to attack specific proteins in cancer cells, causing less damage to healthy cells than traditional chemo."
+        "explanation": "Targeted therapies attack specific proteins in cancer cells, causing less damage to healthy cells than traditional chemo."
       },
       {
         "id": "q4",
         "type": "fill-blank",
         "questionText": "Imatinib (Gleevec) is a famous targeted therapy drug for treating _____.",
         "correctAnswer": "CML",
-        "explanation": "Imatinib transformed CML (Chronic Myeloid Leukemia) from a fatal disease into a manageable condition. It blocks the BCR-ABL protein that drives CML growth."
+        "explanation": "Imatinib transformed CML from a fatal disease into a manageable condition by blocking the BCR-ABL protein."
       },
       {
         "id": "q5",
         "type": "true-false",
         "questionText": "Immunotherapy helps the patient's own immune system fight leukemia cells.",
         "correctAnswer": "true",
-        "explanation": "Immunotherapy treatments like CAR-T cell therapy engineer the patient's own T-cells to recognize and destroy leukemia cells — a major breakthrough in treatment."
+        "explanation": "CAR-T cell therapy engineers the patient's own T-cells to recognize and destroy leukemia cells."
+      }
+    ]
+  },
+  {
+    "id": "lesson-006",
+    "title": "How Blood Cells Work",
+    "category": "basics",
+    "description": "Understand how healthy blood cells are made and what goes wrong in leukemia.",
+    "difficulty": "easy",
+    "xpReward": 55,
+    "order": 6,
+    "icon": "FiActivity",
+    "color": "orange",
+    "questions": [
+      {
+        "id": "q1",
+        "type": "multiple-choice",
+        "questionText": "What are the three main types of blood cells?",
+        "options": ["Red, white, and plasma", "Red, white, and platelets", "White, platelets, and plasma", "Stem, myeloid, and lymphoid"],
+        "correctAnswer": "Red, white, and platelets",
+        "explanation": "Blood contains red blood cells (carry oxygen), white blood cells (fight infection), and platelets (help clotting)."
+      },
+      {
+        "id": "q2",
+        "type": "fill-blank",
+        "questionText": "All blood cells originate from _____ cells in the bone marrow.",
+        "correctAnswer": "stem",
+        "explanation": "Hematopoietic stem cells in the bone marrow are the source of all blood cell types. In leukemia, their development goes wrong."
+      },
+      {
+        "id": "q3",
+        "type": "multiple-choice",
+        "questionText": "What is the role of red blood cells?",
+        "options": ["Fight infection", "Carry oxygen throughout the body", "Clot wounds", "Produce antibodies"],
+        "correctAnswer": "Carry oxygen throughout the body",
+        "explanation": "Red blood cells contain hemoglobin which binds to oxygen and transports it from the lungs to all tissues."
+      },
+      {
+        "id": "q4",
+        "type": "true-false",
+        "questionText": "In leukemia, abnormal cells crowd out healthy blood cells in the bone marrow.",
+        "correctAnswer": "true",
+        "explanation": "Leukemic cells multiply uncontrollably and take up space in the bone marrow, leaving little room for healthy red cells, white cells, and platelets."
+      },
+      {
+        "id": "q5",
+        "type": "multiple-choice",
+        "questionText": "What is the lifespan of a typical red blood cell?",
+        "options": ["1 day", "2 weeks", "120 days", "1 year"],
+        "correctAnswer": "120 days",
+        "explanation": "Red blood cells live about 120 days before being recycled by the spleen. The bone marrow must constantly produce new ones."
+      }
+    ]
+  },
+  {
+    "id": "lesson-007",
+    "title": "Diagnosing Leukemia",
+    "category": "symptoms",
+    "description": "Learn how doctors detect and diagnose leukemia using modern tests.",
+    "difficulty": "medium",
+    "xpReward": 70,
+    "order": 7,
+    "icon": "FiSearch",
+    "color": "red",
+    "questions": [
+      {
+        "id": "q1",
+        "type": "multiple-choice",
+        "questionText": "What is the first test usually done to detect leukemia?",
+        "options": ["MRI scan", "Complete Blood Count (CBC)", "Urine test", "X-ray"],
+        "correctAnswer": "Complete Blood Count (CBC)",
+        "explanation": "A CBC measures the levels of red cells, white cells, and platelets. Abnormal numbers — especially too many white cells — can indicate leukemia."
+      },
+      {
+        "id": "q2",
+        "type": "true-false",
+        "questionText": "A bone marrow biopsy is needed to confirm a leukemia diagnosis.",
+        "correctAnswer": "true",
+        "explanation": "A bone marrow biopsy takes a small sample from the hip bone. It confirms the type and extent of leukemia and guides treatment decisions."
+      },
+      {
+        "id": "q3",
+        "type": "multiple-choice",
+        "questionText": "What does a bone marrow biopsy examine?",
+        "options": ["Heart tissue", "Spine fluid", "Cells from inside bones", "Skin cells"],
+        "correctAnswer": "Cells from inside bones",
+        "explanation": "The biopsy extracts a small sample of bone marrow, usually from the hip bone, to examine the blood-forming cells under a microscope."
+      },
+      {
+        "id": "q4",
+        "type": "fill-blank",
+        "questionText": "CBC stands for Complete Blood _____.",
+        "correctAnswer": "Count",
+        "explanation": "A Complete Blood Count (CBC) is a standard blood test that provides counts of all cell types and is the first step in diagnosing blood disorders."
+      },
+      {
+        "id": "q5",
+        "type": "multiple-choice",
+        "questionText": "Which test identifies specific genetic mutations in leukemia cells?",
+        "options": ["X-ray", "Blood pressure check", "Cytogenetic analysis", "Ultrasound"],
+        "correctAnswer": "Cytogenetic analysis",
+        "explanation": "Cytogenetic analysis examines chromosomes in leukemia cells to identify mutations like the Philadelphia chromosome in CML, guiding targeted therapy."
+      }
+    ]
+  },
+  {
+    "id": "lesson-008",
+    "title": "Lifestyle & Prevention",
+    "category": "risks",
+    "description": "Discover lifestyle changes that can reduce your leukemia risk.",
+    "difficulty": "easy",
+    "xpReward": 55,
+    "order": 8,
+    "icon": "FiSun",
+    "color": "yellow",
+    "questions": [
+      {
+        "id": "q1",
+        "type": "multiple-choice",
+        "questionText": "Which lifestyle change most directly reduces leukemia risk?",
+        "options": ["Eating less sugar", "Quitting smoking", "Sleeping more", "Drinking green tea"],
+        "correctAnswer": "Quitting smoking",
+        "explanation": "Smoking contains benzene and dozens of carcinogens that increase AML risk by ~40%. Quitting smoking is the single most impactful lifestyle change."
+      },
+      {
+        "id": "q2",
+        "type": "true-false",
+        "questionText": "Avoiding unnecessary radiation exposure (e.g., excessive X-rays) can reduce leukemia risk.",
+        "correctAnswer": "true",
+        "explanation": "While medical X-rays use very low doses, unnecessary repeated exposure to ionizing radiation should be avoided to minimize cumulative risk."
+      },
+      {
+        "id": "q3",
+        "type": "multiple-choice",
+        "questionText": "Workers in which industry face higher benzene exposure risk?",
+        "options": ["Teaching", "Cooking", "Petroleum and rubber industries", "Architecture"],
+        "correctAnswer": "Petroleum and rubber industries",
+        "explanation": "Workers in petroleum refining, rubber manufacturing, and chemical plants face higher benzene exposure. Proper protective equipment is essential."
+      },
+      {
+        "id": "q4",
+        "type": "true-false",
+        "questionText": "Regular medical check-ups can help detect leukemia at an earlier, more treatable stage.",
+        "correctAnswer": "true",
+        "explanation": "Routine blood tests during check-ups can catch abnormal cell counts early. Early-stage leukemia generally has much better treatment outcomes."
+      },
+      {
+        "id": "q5",
+        "type": "fill-blank",
+        "questionText": "Maintaining a healthy immune system through diet and exercise may help your body fight _____ cell changes.",
+        "correctAnswer": "abnormal",
+        "explanation": "A strong immune system helps detect and destroy abnormal cells before they become cancerous, though it cannot prevent all leukemia cases."
+      }
+    ]
+  },
+  {
+    "id": "lesson-009",
+    "title": "Living with Leukemia",
+    "category": "support",
+    "description": "Tips and guidance for patients and families coping with a leukemia diagnosis.",
+    "difficulty": "easy",
+    "xpReward": 60,
+    "order": 9,
+    "icon": "FiHeart",
+    "color": "blue",
+    "questions": [
+      {
+        "id": "q1",
+        "type": "multiple-choice",
+        "questionText": "What is 'remission' in leukemia treatment?",
+        "options": ["The cancer has spread", "No cancer cells are detectable in the body", "Treatment has stopped", "The patient has recovered fully"],
+        "correctAnswer": "No cancer cells are detectable in the body",
+        "explanation": "Remission means cancer cells are no longer detectable in tests. Complete remission is the main goal of treatment, though monitoring continues."
+      },
+      {
+        "id": "q2",
+        "type": "true-false",
+        "questionText": "Mental health support is an important part of leukemia care.",
+        "correctAnswer": "true",
+        "explanation": "A leukemia diagnosis causes significant emotional stress. Counseling, support groups, and mental health care are essential parts of comprehensive treatment."
+      },
+      {
+        "id": "q3",
+        "type": "multiple-choice",
+        "questionText": "Why should leukemia patients avoid crowded places during chemotherapy?",
+        "options": ["Due to noise sensitivity", "Chemo weakens the immune system, raising infection risk", "It causes dizziness", "Hospital policy"],
+        "correctAnswer": "Chemo weakens the immune system, raising infection risk",
+        "explanation": "Chemotherapy reduces white blood cell counts, making patients highly vulnerable to infections. Avoiding crowds helps prevent potentially life-threatening illnesses."
+      },
+      {
+        "id": "q4",
+        "type": "fill-blank",
+        "questionText": "Joining a _____ group connects patients with others who understand the leukemia journey.",
+        "correctAnswer": "support",
+        "explanation": "Support groups — in person or online — provide emotional comfort, practical advice, and a sense of community for patients and their families."
+      },
+      {
+        "id": "q5",
+        "type": "true-false",
+        "questionText": "Family members of leukemia patients may also benefit from counseling.",
+        "correctAnswer": "true",
+        "explanation": "Caring for a loved one with leukemia is emotionally and physically demanding. Counseling and caregiver support programs help families cope."
+      }
+    ]
+  },
+  {
+    "id": "lesson-010",
+    "title": "Spreading Awareness",
+    "category": "support",
+    "description": "Learn how you can help spread leukemia awareness and support research.",
+    "difficulty": "easy",
+    "xpReward": 60,
+    "order": 10,
+    "icon": "FiShare2",
+    "color": "blue",
+    "questions": [
+      {
+        "id": "q1",
+        "type": "multiple-choice",
+        "questionText": "September is recognized as which awareness month?",
+        "options": ["Breast Cancer Awareness Month", "Blood Cancer Awareness Month", "Lung Cancer Awareness Month", "World Health Month"],
+        "correctAnswer": "Blood Cancer Awareness Month",
+        "explanation": "September is Blood Cancer Awareness Month, dedicated to raising awareness about leukemia, lymphoma, and myeloma worldwide."
+      },
+      {
+        "id": "q2",
+        "type": "true-false",
+        "questionText": "Donating blood can help leukemia patients who need transfusions.",
+        "correctAnswer": "true",
+        "explanation": "Leukemia patients frequently need red blood cell and platelet transfusions. Regular blood donation from healthy donors directly saves lives."
+      },
+      {
+        "id": "q3",
+        "type": "multiple-choice",
+        "questionText": "Joining a bone marrow donor registry can help which patients?",
+        "options": ["Only children with leukemia", "Patients who need a stem cell transplant", "Patients on chemotherapy", "Patients in remission"],
+        "correctAnswer": "Patients who need a stem cell transplant",
+        "explanation": "Many leukemia patients need a matched stem cell donor. Registering as a bone marrow donor could save someone's life."
+      },
+      {
+        "id": "q4",
+        "type": "fill-blank",
+        "questionText": "Wearing _____ ribbons is a symbol of support for blood cancer awareness.",
+        "correctAnswer": "orange",
+        "explanation": "Orange ribbons symbolize leukemia awareness. Wearing one helps start conversations and spread awareness in your community."
+      },
+      {
+        "id": "q5",
+        "type": "true-false",
+        "questionText": "Sharing accurate leukemia information on social media helps reduce stigma and encourages early diagnosis.",
+        "correctAnswer": "true",
+        "explanation": "Spreading accurate, compassionate information helps others recognize symptoms earlier and reduces the fear and stigma surrounding cancer diagnoses."
+      }
+    ]
+  },
+  {
+    "id": "lesson-011",
+    "title": "Chemotherapy Explained",
+    "category": "treatment",
+    "description": "A deep dive into how chemotherapy works and what patients can expect.",
+    "difficulty": "medium",
+    "xpReward": 80,
+    "order": 11,
+    "icon": "FiZap",
+    "color": "green",
+    "questions": [
+      {
+        "id": "q1",
+        "type": "multiple-choice",
+        "questionText": "How does chemotherapy kill cancer cells?",
+        "options": ["By freezing them", "By targeting rapidly dividing cells", "By starving them of sugar", "By boosting the immune system"],
+        "correctAnswer": "By targeting rapidly dividing cells",
+        "explanation": "Chemotherapy drugs target cells that divide rapidly — which is a key characteristic of cancer cells. Unfortunately, some healthy fast-dividing cells (like hair follicles) are affected too."
+      },
+      {
+        "id": "q2",
+        "type": "true-false",
+        "questionText": "Hair loss is a common side effect of chemotherapy.",
+        "correctAnswer": "true",
+        "explanation": "Hair follicle cells divide rapidly, so they are often affected by chemo. Hair typically regrows after treatment ends."
+      },
+      {
+        "id": "q3",
+        "type": "multiple-choice",
+        "questionText": "What are the two main phases of chemotherapy for ALL?",
+        "options": ["Surgery and recovery", "Induction and maintenance", "Radiation and rest", "Injection and tablet phases"],
+        "correctAnswer": "Induction and maintenance",
+        "explanation": "Induction therapy aims to achieve remission quickly. Maintenance therapy continues for months or years to prevent relapse and kill remaining cancer cells."
+      },
+      {
+        "id": "q4",
+        "type": "fill-blank",
+        "questionText": "Chemotherapy is usually given in _____ to allow the body time to recover between treatments.",
+        "correctAnswer": "cycles",
+        "explanation": "Treatment cycles typically last a few weeks, followed by a rest period. This allows healthy cells to recover while keeping pressure on cancer cells."
+      },
+      {
+        "id": "q5",
+        "type": "true-false",
+        "questionText": "Nausea and vomiting are common side effects of chemotherapy that can be managed with medication.",
+        "correctAnswer": "true",
+        "explanation": "Anti-nausea (antiemetic) drugs are routinely given alongside chemotherapy to significantly reduce nausea and vomiting."
+      }
+    ]
+  },
+  {
+    "id": "lesson-012",
+    "title": "The Philadelphia Chromosome",
+    "category": "basics",
+    "description": "Understand one of the most important genetic discoveries in leukemia research.",
+    "difficulty": "hard",
+    "xpReward": 100,
+    "order": 12,
+    "icon": "FiCpu",
+    "color": "orange",
+    "questions": [
+      {
+        "id": "q1",
+        "type": "multiple-choice",
+        "questionText": "The Philadelphia chromosome is most associated with which leukemia type?",
+        "options": ["ALL", "CLL", "CML", "AML"],
+        "correctAnswer": "CML",
+        "explanation": "The Philadelphia chromosome is found in over 90% of CML patients. It's caused by a translocation between chromosomes 9 and 22."
+      },
+      {
+        "id": "q2",
+        "type": "multiple-choice",
+        "questionText": "What abnormal protein does the Philadelphia chromosome produce?",
+        "options": ["BCR-ABL", "TP53", "KRAS", "BRCA1"],
+        "correctAnswer": "BCR-ABL",
+        "explanation": "The translocation creates the BCR-ABL fusion gene, which produces an overactive tyrosine kinase that drives uncontrolled cell division."
+      },
+      {
+        "id": "q3",
+        "type": "true-false",
+        "questionText": "The discovery of the Philadelphia chromosome led to the development of targeted therapies like imatinib.",
+        "correctAnswer": "true",
+        "explanation": "Understanding that BCR-ABL drives CML allowed scientists to design imatinib (Gleevec), which specifically blocks this protein — a landmark in precision medicine."
+      },
+      {
+        "id": "q4",
+        "type": "fill-blank",
+        "questionText": "The Philadelphia chromosome results from a translocation between chromosomes 9 and _____.",
+        "correctAnswer": "22",
+        "explanation": "This chromosomal swap — called t(9;22) — merges part of chromosome 9 onto chromosome 22, creating the shorter Philadelphia chromosome."
+      },
+      {
+        "id": "q5",
+        "type": "multiple-choice",
+        "questionText": "In which city was the Philadelphia chromosome first discovered?",
+        "options": ["New York", "London", "Philadelphia", "Berlin"],
+        "correctAnswer": "Philadelphia",
+        "explanation": "It was discovered in 1960 by Peter Nowell and David Hungerford at the University of Pennsylvania in Philadelphia — hence the name."
+      }
+    ]
+  },
+  {
+    "id": "lesson-013",
+    "title": "CAR-T Cell Therapy",
+    "category": "treatment",
+    "description": "Explore the revolutionary immunotherapy that reprograms your own immune cells to fight leukemia.",
+    "difficulty": "hard",
+    "xpReward": 100,
+    "order": 13,
+    "icon": "FiCrosshair",
+    "color": "green",
+    "questions": [
+      {
+        "id": "q1",
+        "type": "multiple-choice",
+        "questionText": "What does CAR stand for in CAR-T therapy?",
+        "options": ["Cancer Antigen Receptor", "Chimeric Antigen Receptor", "Cellular Attack Response", "Controlled Antigen Release"],
+        "correctAnswer": "Chimeric Antigen Receptor",
+        "explanation": "CAR stands for Chimeric Antigen Receptor — an engineered protein added to T-cells that helps them recognize and attack specific cancer cells."
+      },
+      {
+        "id": "q2",
+        "type": "true-false",
+        "questionText": "In CAR-T therapy, the patient's own T-cells are used.",
+        "correctAnswer": "true",
+        "explanation": "T-cells are extracted from the patient, genetically engineered in a lab to express the CAR protein, then infused back into the patient to attack cancer cells."
+      },
+      {
+        "id": "q3",
+        "type": "multiple-choice",
+        "questionText": "Which leukemia type was CAR-T therapy first approved for?",
+        "options": ["CML", "AML", "ALL in children", "CLL"],
+        "correctAnswer": "ALL in children",
+        "explanation": "In 2017, tisagenlecleucel (Kymriah) became the first CAR-T therapy approved by the FDA, specifically for children with relapsed ALL."
+      },
+      {
+        "id": "q4",
+        "type": "fill-blank",
+        "questionText": "CAR-T therapy is a form of _____ therapy because it uses the immune system to fight cancer.",
+        "correctAnswer": "immunotherapy",
+        "explanation": "By engineering immune cells, CAR-T falls under immunotherapy — treatments that harness or enhance the immune system's ability to fight cancer."
+      },
+      {
+        "id": "q5",
+        "type": "true-false",
+        "questionText": "CAR-T therapy has shown complete remission in some patients who had no other treatment options.",
+        "correctAnswer": "true",
+        "explanation": "Clinical trials showed CAR-T achieved complete remission in up to 90% of children with relapsed ALL — remarkable results for patients with no other options."
+      }
+    ]
+  },
+  {
+    "id": "lesson-014",
+    "title": "Leukemia in Children",
+    "category": "basics",
+    "description": "Learn about leukemia's impact on children and why early detection matters most.",
+    "difficulty": "medium",
+    "xpReward": 70,
+    "order": 14,
+    "icon": "FiStar",
+    "color": "orange",
+    "questions": [
+      {
+        "id": "q1",
+        "type": "multiple-choice",
+        "questionText": "What percentage of all childhood cancers does leukemia account for?",
+        "options": ["About 5%", "About 15%", "About 30%", "About 50%"],
+        "correctAnswer": "About 30%",
+        "explanation": "Leukemia accounts for roughly 30% of all cancers in children, making it the most common childhood cancer."
+      },
+      {
+        "id": "q2",
+        "type": "true-false",
+        "questionText": "The survival rate for childhood ALL has improved dramatically over the past 50 years.",
+        "correctAnswer": "true",
+        "explanation": "In the 1960s, childhood ALL was almost always fatal. Today, over 90% of children with ALL achieve complete remission thanks to modern treatment."
+      },
+      {
+        "id": "q3",
+        "type": "multiple-choice",
+        "questionText": "At what age range is childhood leukemia most commonly diagnosed?",
+        "options": ["0-2 years", "2-5 years", "10-14 years", "15-18 years"],
+        "correctAnswer": "2-5 years",
+        "explanation": "Childhood leukemia peaks between ages 2-5, though it can occur at any age. The reasons for this age peak are still being studied."
+      },
+      {
+        "id": "q4",
+        "type": "fill-blank",
+        "questionText": "The 5-year survival rate for children with ALL is now over _____% in developed countries.",
+        "correctAnswer": "90",
+        "explanation": "Modern treatment protocols have achieved over 90% 5-year survival rates for childhood ALL, one of the great success stories in cancer medicine."
+      },
+      {
+        "id": "q5",
+        "type": "true-false",
+        "questionText": "Children tolerate leukemia treatment differently than adults and often recover more completely.",
+        "correctAnswer": "true",
+        "explanation": "Children generally tolerate intensive chemotherapy better than adults and have better outcomes partly due to biological differences in their leukemia cells."
+      }
+    ]
+  },
+  {
+    "id": "lesson-015",
+    "title": "Bone Marrow Transplant",
+    "category": "treatment",
+    "description": "Understand how stem cell transplants work and who they can help.",
+    "difficulty": "hard",
+    "xpReward": 100,
+    "order": 15,
+    "icon": "FiRefreshCw",
+    "color": "green",
+    "questions": [
+      {
+        "id": "q1",
+        "type": "multiple-choice",
+        "questionText": "What is the purpose of high-dose chemotherapy before a bone marrow transplant?",
+        "options": ["To shrink tumors", "To destroy the diseased bone marrow and make room for donor cells", "To boost immunity", "To prevent rejection"],
+        "correctAnswer": "To destroy the diseased bone marrow and make room for donor cells",
+        "explanation": "High-dose chemotherapy (conditioning) wipes out the patient's existing bone marrow, both destroying leukemia cells and creating space for the donor stem cells."
+      },
+      {
+        "id": "q2",
+        "type": "true-false",
+        "questionText": "An allogeneic transplant uses stem cells from a matched donor.",
+        "correctAnswer": "true",
+        "explanation": "Allogeneic means 'from another person'. A matched sibling or unrelated donor provides stem cells. The match is based on HLA (human leukocyte antigen) proteins."
+      },
+      {
+        "id": "q3",
+        "type": "multiple-choice",
+        "questionText": "What is 'graft-versus-host disease' (GVHD)?",
+        "options": ["When the body rejects the transplant", "When donor cells attack the patient's own tissues", "When leukemia returns", "When the immune system overreacts to chemo"],
+        "correctAnswer": "When donor cells attack the patient's own tissues",
+        "explanation": "GVHD occurs when the donor's immune cells recognize the patient's body as foreign and attack it. It can range from mild to life-threatening."
+      },
+      {
+        "id": "q4",
+        "type": "fill-blank",
+        "questionText": "A transplant using the patient's own cells is called an _____ transplant.",
+        "correctAnswer": "autologous",
+        "explanation": "An autologous transplant collects the patient's own stem cells before high-dose chemo, then re-infuses them. It avoids GVHD but doesn't provide a graft-versus-leukemia effect."
+      },
+      {
+        "id": "q5",
+        "type": "true-false",
+        "questionText": "Finding a matched unrelated donor can take weeks to months.",
+        "correctAnswer": "true",
+        "explanation": "HLA matching is complex. International registries like DKMS and Be The Match search millions of volunteers to find the best match for patients."
       }
     ]
   }
