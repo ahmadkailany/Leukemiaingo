@@ -1,6 +1,5 @@
 import '@testing-library/jest-dom';
 
-// Mock Next.js router
 jest.mock('next/navigation', () => ({
   useRouter: () => ({
     push: jest.fn(),
@@ -14,7 +13,6 @@ jest.mock('next/navigation', () => ({
   usePathname: () => '/test',
 }));
 
-// Mock Next.js Link
 jest.mock('next/link', () => {
   const React = require('react');
   return function MockLink({ children, href }: { children: React.ReactNode; href: string }) {
@@ -22,7 +20,6 @@ jest.mock('next/link', () => {
   };
 });
 
-// Suppress React act() and Warning: messages in tests
 const originalError = console.error;
 beforeAll(() => {
   console.error = (...args: unknown[]) => {
