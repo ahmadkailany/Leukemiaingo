@@ -1,128 +1,83 @@
 'use client';
 
 import Link from 'next/link';
-import { FiLock, FiCheckCircle, FiChevronRight } from 'react-icons/fi';
-import { MdScience, MdSearch, MdWarning, MdLocalHospital, MdFavorite, MdBloodtype, MdCategory, MdMedication } from 'react-icons/md';
-import { cn } from '@/lib/utils';
-import { CATEGORY_LABELS } from '@/lib/constants';
-import type { Lesson } from '@/types/lesson';
+import { LessonLight } from '@/types/lesson';
+import { FiCheckCircle, FiLock, FiZap, FiArrowRight } from 'react-icons/fi';
 
-const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
-  MdScience,
-  MdSearch,
-  MdWarning,
-  MdLocalHospital,
-  MdFavorite,
-  MdBloodtype,
-  MdCategory,
-  MdMedication,
+const DIFFICULTY_COLORS: Record<string, string> = {
+  easy: 'bg-green-100 text-green-700',
+  medium: 'bg-yellow-100 text-yellow-700',
+  hard: 'bg-red-100 text-red-700',
 };
 
-const categoryGradients: Record<string, string> = {
-  basics: 'from-blue-400 to-blue-600',
-  symptoms: 'from-red-400 to-red-600',
-  risks: 'from-amber-400 to-amber-600',
-  treatment: 'from-green-400 to-green-600',
-  support: 'from-purple-400 to-purple-600',
+const CATEGORY_GRADIENTS: Record<string, string> = {
+  basics: 'from-orange-400 to-orange-500',
+  symptoms: 'from-red-400 to-red-500',
+  risks: 'from-yellow-400 to-yellow-500',
+  treatment: 'from-green-400 to-green-500',
+  support: 'from-blue-400 to-blue-500',
 };
 
-const categoryBg: Record<string, string> = {
-  basics: 'bg-blue-50 border-blue-100',
-  symptoms: 'bg-red-50 border-red-100',
-  risks: 'bg-amber-50 border-amber-100',
-  treatment: 'bg-green-50 border-green-100',
-  support: 'bg-purple-50 border-purple-100',
-};
-
-interface LessonCardProps {
-  lesson: Lesson;
-  completed?: boolean;
+interface Props {
+  lesson: LessonLight;
+  completed: boolean;
   locked?: boolean;
 }
 
-export default function LessonCard({ lesson, completed = false, locked = false }: LessonCardProps) {
-  const IconComponent = iconMap[lesson.icon] || MdScience;
-  const gradient = categoryGradients[lesson.category] || categoryGradients['basics'];
-  const bgClass = categoryBg[lesson.category] || categoryBg['basics'];
+export default function LessonCard({ lesson, completed, locked = false }: Props) {
+  const gradient = CATEGORY_GRADIENTS[lesson.category] || 'from-orange-400 to-orange-500';
 
-  const difficultyColors = {
-    easy: 'bg-green-100 text-green-700',
-    medium: 'bg-amber-100 text-amber-700',
-    hard: 'bg-red-100 text-red-700',
-  };
+  return (
+    <div className={`relative rounded-2xl overflow-hidden border-2 transition-all ${
+      completed ? 'border-green-400' : locked ? 'border-gray-200 opacity-60' : 'border-transparent hover:border-orange-300 hover:shadow-lg hover:-translate-y-1'
+    }`}>
+      {/* Top gradient bar */}
+      <div className={`h-2 bg-gradient-to-r ${gradient}`} />
 
-  const CardContent = (
-    <div
-      className={cn(
-        'relative flex items-center gap-4 p-4 rounded-2xl border-2 transition-all duration-300 group',
-        completed
-          ? 'bg-green-50 border-green-200 hover:shadow-md'
-          : locked
-          ? 'bg-gray-50 border-gray-100 opacity-60 cursor-not-allowed'
-          : `${bgClass} hover:shadow-md hover:-translate-y-0.5 cursor-pointer`
-      )}
-    >
-      {/* Icon */}
-      <div
-        className={cn(
-          'w-14 h-14 rounded-2xl flex items-center justify-center flex-shrink-0 shadow-md',
-          locked
-            ? 'bg-gray-200'
-            : completed
-            ? 'bg-gradient-to-br from-green-400 to-green-600'
-            : `bg-gradient-to-br ${gradient}`
-        )}
-      >
-        {locked ? (
-          <FiLock className="w-6 h-6 text-gray-400" />
-        ) : completed ? (
-          <FiCheckCircle className="w-6 h-6 text-white" />
-        ) : (
-          <IconComponent className="w-6 h-6 text-white" />
-        )}
-      </div>
-
-      {/* Content */}
-      <div className="flex-1 min-w-0">
-        <div className="flex items-center gap-2 mb-0.5">
-          <span className="text-xs text-gray-500 font-medium">
-            {CATEGORY_LABELS[lesson.category]}
-          </span>
-          <span
-            className={cn(
-              'px-2 py-0.5 text-xs rounded-md font-semibold',
-              difficultyColors[lesson.difficulty]
+      <div className="bg-white p-5">
+        <div className="flex items-start justify-between gap-3">
+          <div className="flex-1">
+            <div className="flex items-center gap-2 mb-1">
+              <span className={`text-xs font-semibold px-2 py-0.5 rounded-full ${DIFFICULTY_COLORS[lesson.difficulty]}`}>
+                {lesson.difficulty}
+              </span>
+              <span className="text-xs text-gray-400 capitalize">{lesson.category}</span>
+            </div>
+            <h3 className="font-extrabold text-gray-800 text-lg leading-tight">{lesson.title}</h3>
+            <p className="text-sm text-gray-500 mt-1 line-clamp-2">{lesson.description}</p>
+          </div>
+          <div className="flex-shrink-0 mt-1">
+            {completed ? (
+              <FiCheckCircle className="text-3xl text-green-500" />
+            ) : locked ? (
+              <FiLock className="text-3xl text-gray-300" />
+            ) : (
+              <div className={`w-12 h-12 rounded-full bg-gradient-to-br ${gradient} flex items-center justify-center text-white text-xl shadow`}>
+                🦠
+              </div>
             )}
-          >
-            {lesson.difficulty}
-          </span>
+          </div>
         </div>
-        <h3 className="font-bold text-gray-900 truncate">{lesson.title}</h3>
-        <p className="text-sm text-gray-500 truncate mt-0.5">{lesson.description}</p>
-        <div className="flex items-center gap-3 mt-1.5">
-          <span className="text-xs font-semibold text-amber-600">
-            +{lesson.xpReward} XP
-          </span>
-          <span className="text-xs text-gray-400">
-            {lesson.questions.length} questions
-          </span>
+
+        <div className="flex items-center justify-between mt-4">
+          <div className="flex items-center gap-1 text-orange-500">
+            <FiZap className="text-sm" />
+            <span className="text-sm font-bold">{lesson.xpReward} XP</span>
+          </div>
+          {!locked && (
+            <Link
+              href={`/lessons/${lesson.id}`}
+              className={`flex items-center gap-1 text-sm font-bold px-4 py-2 rounded-full transition-all ${
+                completed
+                  ? 'bg-green-100 text-green-700 hover:bg-green-200'
+                  : 'bg-orange-500 text-white hover:bg-orange-600'
+              }`}
+            >
+              {completed ? 'Redo' : 'Start'} <FiArrowRight />
+            </Link>
+          )}
         </div>
       </div>
-
-      {/* Arrow */}
-      {!locked && (
-        <FiChevronRight className="w-5 h-5 text-gray-400 flex-shrink-0 group-hover:translate-x-1 transition-transform" />
-      )}
-
-      {/* Completed check */}
-      {completed && (
-        <div className="absolute -top-2 -right-2 w-6 h-6 bg-green-500 rounded-full flex items-center justify-center">
-          <FiCheckCircle className="w-4 h-4 text-white" />
-        </div>
-      )}
     </div>
   );
-
-  if (locked) return CardContent;
-  return <Link href={`/lessons/${lesson.id}`}>{CardContent}</Link>;
 }

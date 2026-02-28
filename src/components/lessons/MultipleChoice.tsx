@@ -1,46 +1,39 @@
 'use client';
 
-import { cn } from '@/lib/utils';
-import { FiCheckCircle, FiXCircle } from 'react-icons/fi';
+import { FiCheck, FiX } from 'react-icons/fi';
 
-interface MultipleChoiceProps {
+interface Props {
   options: string[];
+  selected: string;
+  onSelect: (v: string) => void;
+  submitted: boolean;
   correctAnswer: string;
-  answered: boolean;
-  selectedAnswer: string | null;
-  onSelect: (answer: string) => void;
 }
 
-export default function MultipleChoice({
-  options,
-  correctAnswer,
-  answered,
-  selectedAnswer,
-  onSelect,
-}: MultipleChoiceProps) {
+export default function MultipleChoice({ options, selected, onSelect, submitted, correctAnswer }: Props) {
   return (
     <div className="space-y-3">
-      {options.map((option) => {
-        const isSelected = selectedAnswer === option;
-        const isCorrect = option.toLowerCase() === correctAnswer.toLowerCase();
-
+      {options.map((opt) => {
+        const isSelected = selected === opt;
+        const isCorrect = opt === correctAnswer;
+        let style = 'border-gray-200 bg-white text-gray-700 hover:border-orange-300 hover:bg-orange-50';
+        if (submitted) {
+          if (isCorrect) style = 'border-green-400 bg-green-50 text-green-800';
+          else if (isSelected && !isCorrect) style = 'border-red-400 bg-red-50 text-red-800';
+          else style = 'border-gray-100 bg-gray-50 text-gray-400';
+        } else if (isSelected) {
+          style = 'border-orange-400 bg-orange-50 text-orange-700 font-bold';
+        }
         return (
           <button
-            key={option}
-            onClick={() => onSelect(option)}
-            disabled={answered}
-            className={cn(
-              'w-full flex items-center justify-between gap-3 p-4 rounded-2xl border-2 text-left font-semibold transition-all duration-200',
-              !answered && 'hover:border-orange-300 hover:bg-orange-50 cursor-pointer active:scale-99',
-              answered && isCorrect && 'bg-green-50 border-green-500 text-green-800',
-              answered && isSelected && !isCorrect && 'bg-red-50 border-red-400 text-red-700',
-              answered && !isSelected && !isCorrect && 'opacity-50 border-gray-200 bg-gray-50',
-              !answered && 'border-gray-200 bg-white hover:shadow-sm'
-            )}
+            key={opt}
+            onClick={() => !submitted && onSelect(opt)}
+            disabled={submitted}
+            className={`w-full text-left px-5 py-4 rounded-2xl border-2 transition-all flex items-center justify-between ${style}`}
           >
-            <span>{option}</span>
-            {answered && isCorrect && <FiCheckCircle className="w-5 h-5 text-green-600 flex-shrink-0" />}
-            {answered && isSelected && !isCorrect && <FiXCircle className="w-5 h-5 text-red-500 flex-shrink-0" />}
+            <span>{opt}</span>
+            {submitted && isCorrect && <FiCheck className="text-green-600 text-lg" />}
+            {submitted && isSelected && !isCorrect && <FiX className="text-red-600 text-lg" />}
           </button>
         );
       })}
